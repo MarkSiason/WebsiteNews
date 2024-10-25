@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Technology Society</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .headerWithFont {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        header h2 {
+            font-size: 1.5em;
+            margin: 5px 0 20px;
+            font-weight: 300;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Responsive Navbar */
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .navbar-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .navbar-menu.hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+            }
+
+            .navbar-menu.show {
+                display: flex;
+            }
+        }
+
+        /* Container for Main Content and Sidebar */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+            justify-content: center;
+        }
+
+        .main-content {
+            flex: 3;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-right: 20px;
+        }
+
+        /* Articles */
+        article {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s;
+        }
+
+        article:hover {
+            transform: scale(1.02);
+        }
+
+        article h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        article p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        article img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        article img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Editorial Staff */
+        .editorial-staff {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .editorial-staff h3 {
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+
+        .editorial-staff ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .editorial-staff ul li {
+            margin: 5px 0;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .main-content,
+            .sidebar {
+                margin: 0;
+            }
+
+            .sidebar {
+                margin-top: 20px;
+            }
+        }
+    </style>
+    <script>
+        function toggleNavbar() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="headerWithFont">Science Technology Society</h1>
+        <h2 class="headerWithFont">NextGen Science: News on Health, Environment, and Technology</h2>
+    </header>
+
+    <nav>
+        <button class="navbar-toggle" onclick="toggleNavbar()">Menu</button>
+        <div class="navbar">
+            <div class="navbar-menu">
+                <a href="#lesson1">Nanotechnology</a>
+                <a href="#lesson2">Biodiversity</a>
+                <a href="#lesson3">GMOs</a>
+                <a href="#lesson4">Climate Change</a>
+                <a href="#lesson5">Gene Therapy</a>
+                <form action="#" method="get" style="display: inline-block;">
+                    <input type="text" placeholder="Search..." aria-label="Search" style="padding: 5px;">
+                    <button type="submit" style="padding: 5px; background-color: #4CAF50; color: white; border: none;">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <article id="lesson1">
+                <img src="./Nanotechnology.png" alt="Nanotechnology">
+                <h2>Nanotechnology</h2>
+                <p>Refers to updates and developments related to the manipulation of matter at the nanoscale,
+                    typically between 1 to 100 nanometers. This field encompasses innovations in materials science,
+                    medicine, electronics, and environmental science.
+                    News in this area highlights breakthroughs such as new applications for nanomaterials,
+                    advancements in drug delivery systems, and ethical considerations regarding health and safety.
+                    It aims to inform the public and policymakers about the potential benefits, risks,
+                    and societal implications of nanotechnology,
+                    fostering informed discussions about its role in shaping the future.</p>
+            </article>
+
+            <article id="lesson2">
+                <img src="./Threats-to-biodiversity.png" alt="Biodiversity">
+                <h2>Biodiversity and the Healthy Society</h2>
+                <p>covers developments and insights related to the variety of life on Earth and its critical role in
+                    human well-being.
+                    This includes the study of ecosystems, species conservation, and the interdependence between
+                    biodiversity and public health.
+                    News in this area highlights how the preservation of diverse ecosystems contributes to food
+                    security, clean water,
+                    and disease regulation, while also addressing the impacts of biodiversity loss on health and
+                    livelihoods.
+                    It aims to raise awareness about the importance of maintaining ecological balance and promoting
+                    sustainable practices that benefit both the environment and society.</p>
+            </article>
+
+            <article id="lesson3">
+                <img src="./GMO.png" alt="Genetically Modified Organisms">
+                <h2>Genetically Modified Organisms</h2>
+                <p>refers to updates and discussions surrounding organisms whose genetic material has been altered
+                    through biotechnology for various purposes,
+                    including agriculture, medicine, and research. This news covers advancements in genetic engineering
+                    techniques,
+                    such as CRISPR, the development of GMO crops that resist pests or tolerate harsh conditions,
+                    and the implications for food security and environmental sustainability. It also addresses ethical
+                    concerns,
+                    regulatory debates, and public perceptions related to GMOs,
+                    aiming to inform consumers and policymakers about the benefits and risks associated with these
+                    innovations and their impact on health,
+                    ecosystems, and global food systems.</p>
+            </article>
+
+            <article id="lesson4">
+                <img src="./ClimateChange.jfif" alt="Climate Change">
+                <h2>Climate Change</h2>
+                <p>encompasses the latest developments, research findings, and policy discussions related to the ongoing
+                    changes in the Earth's climate due to human activities, particularly the increase in greenhouse gas
+                    emissions.
+                    This news covers a wide range of topics, including the effects of climate change on weather
+                    patterns,
+                    sea-level rise, and biodiversity, as well as mitigation strategies such as renewable energy adoption
+                    and
+                    carbon reduction initiatives. It highlights international agreements, such as the Paris Agreement,
+                    and the role of
+                    governments, businesses, and individuals in addressing this global challenge. The aim is to raise
+                    awareness and
+                    promote action towards a sustainable future, emphasizing the urgency of tackling climate change for
+                    the health of
+                    the planet and future generations.</p>
+            </article>
+
+            <article id="lesson5">
+                <img src="./Stem Cell.png" alt="Gene Therapy and Stem Cell">
+                <h2>Gene Therapy and Stem Cell</h2>
+                <p>focuses on advancements in the medical fields of gene therapy and stem cell research,
+                    which aim to treat or prevent diseases by modifying genetic material or utilizing stem cells for
+                    regeneration. This news covers breakthroughs in techniques for delivering therapeutic genes,
+                    developments in stem cell applications for conditions like spinal cord injuries and degenerative
+                    diseases, and ethical considerations surrounding these technologies. It highlights clinical trials,
+                    regulatory changes, and success stories of patients benefiting from these innovative treatments.
+                    The aim is to inform the public and healthcare professionals about the potential of gene therapy and
+                    stem cells to revolutionize medicine, improve patient outcomes, and address previously incurable
+                    conditions.</p>
+            </article>
+
+            <article id="Tesla Innovations">
+                <h2>Tesla - Driven by Innovation</h2>
+                <img src="./Tesla.jpg" alt="Tesla Innovations">
+                <p>Discover Tesla's groundbreaking advancements in electric vehicles and sustainable energy solutions,
+                    created by Elon Musk.
+                    Join us in the journey toward a cleaner, greener future. Stay informed about the latest innovations
+                    and how you can be part of the change!</p>
+            </article>
+
+            <article id="SpaceX Rocket">
+                <h2>SpaceX pulls off unprecedented feat, grabs descending rocket with mechanical arms</h2>
+                <img src="Rocket.jpg" alt="SpaceX Rocket" />
+                <p>The Starship upper stage, meanwhile, looped around the planet and re-entered the
+                    atmosphere over the Indian Ocean as planned, enduring temperatures nearing 3,000
+                    degrees as it descended to a controlled, on-target splashdown. The spacecraft came
+                    through the hellish heat of re-entry in relatively good condition, protected by
+                    improved heat-shield tiles and beefed-up steering fins that worked as needed while
+                    engulfed in a fireball of atmospheric friction. But the jaw-dropping first stage
+                    capture back at the launch pad, using pincer-like arms more familiarly known as
+                    chopsticks, was the clear highlight of the giant rocket's fifth test flight.</p>
+            </article>
+
+            <article id="Alexa AI">
+                <h2>Alexa AI</h2>
+                <img src="Alexa.webp" alt="Alexa AI" />
+                <p>
+                    Alexa and other virtual assistants like Google Assistant and Apple’s Siri rely on artificial
+                    intelligence, automation, and machine learning technologies to respond to user input and execute
+                    commands.
+                    Since 2018, machine learning has expanded Alexa's capabilities. For example, Alexa learned to carry
+                    over
+                    context from one query to the next and to register follow-up questions without requiring the user to
+                    repeat the wake word. The platform also gained the ability to handle multiple requests
+                    simultaneously
+                    and allows users to access a skill (one of Alexa’s onboard apps) without needing to know its exact
+                    name.
+                </p>
+            </article>
+
+            <div class="editorial-staff">
+                <h3>Editorial Staff</h3>
+                <ul>
+                    <li>Mark Anthony L. Siason - Editor-in-Chief</li>
+                    <li>Isaac Teves - Senior Writer</li>
+                    <li>Angela Mae Micabani - Research Analyst</li>
+                    <li>Vince Joseph Ruiz - Contributing Writer</li>
+                    <li>Mark Anthony L. Siason - Copy Editor</li>
+                </ul>
+            </div>
+
+            <div class="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" placeholder="Enter your email" required style="padding: 5px; width: 80%;">
+                    <button type="submit" style="padding: 5px; background-color: #4CAF50; color: white; border: none;">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="#lesson1">Nanotechnology</a></li>
+                <li><a href="#lesson2">Biodiversity Benefits</a></li>
+                <li><a href="#lesson3">Understanding GMOs</a></li>
+                <li><a href="#lesson4">Climate Action Strategies</a></li>
+                <li><a href="#lesson5">Advancements in Gene Therapy</a></li>
+            </ul>
+            <h3>Advertisement</h3>
+            <ul>
+                <li><a href="#Tesla Innovations">Driven by Innovation (Tesla)</a></li>
+                <li><a href="#SpaceX Rocket">SpaceX</a></li>
+                <li><a href="#Alexa AI">Alexa AI</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Science Technology Society. All rights reserved.</p>
+        <p><a href="#" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="#" style="color: white; text-decoration: underline;">Terms of Use</a></p>
+    </footer>
+</body>
+
+</html>
